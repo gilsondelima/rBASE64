@@ -7,33 +7,33 @@ There are native as well as object oriented functions.
 
 Here is the List of the Native Functions for those who want more Control:
 
-  * `size_t base64_encode(char *output, char *input, size_t inputLen)`
+  * `size_t base64_encode(char *output, char *input, size_t inputLen)`<br />
      This function helps to Encode the Stream of Bytes provided at the *input* to *output*
      User needs to ensure that that the Output buffer is adequacy sized.
 
-  * `size_t base64_decode(char *output, char *input, size_t inputLen)`
+  * `size_t base64_decode(char *output, char *input, size_t inputLen)`<br />
      This function helps to Decode the Stream ob Bytes provided at the *input* to *output*
      User needs to ensure that that the Output buffer is adequacy sized.
 
-  * `size_t base64_enc_len(size_t inputLen)`
+  * `size_t base64_enc_len(size_t inputLen)`<br />
      This function can be used to ascertain the maximum size of buffer needed to accommodate
      the converted BASE64 output 
 
-  * `size_t base64_decode(char *output, char *input, size_t inputLen)`
+  * `size_t base64_decode(char *output, char *input, size_t inputLen)`<br />
      This function can be used to find out the maximum size of the buffer needed to accommodate
      the converted original string from BASE64
 
 
 Here is the List of the OO Function in `base64` class:
 
-  * `String BASE64::encode(uint8_t *data, size_t length)` - For Direct byte Stream
-    `String BASE64::encode(char *data)` - For NULL Terminated character Array as shown in the **Example Below**
-    `String BASE64::encode(String text)` - String containing the source
+  * `String BASE64::encode(uint8_t *data, size_t length)` - For Direct byte Stream<br />
+    `String BASE64::encode(char *data)` - For NULL Terminated character Array as shown in the **Example Below**<br />
+    `String BASE64::encode(String text)` - String containing the source<br />
     Function to Convert into BASE64 encoded string else returns the string `"-FAIL"`
 
-  * `String BASE64::decode(uint8_t *data, size_t length)` - For Direct byte Stream
-    `String BASE64::decode(char *data)` - For NULL Terminated character Array as shown in the **Example Below**
-    `String BASE64::decode(String text)` - String containing the source
+  * `String BASE64::decode(uint8_t *data, size_t length)` - For Direct byte Stream<br />
+    `String BASE64::decode(char *data)` - For NULL Terminated character Array as shown in the **Example Below**<br />
+    `String BASE64::decode(String text)` - String containing the source<br />
     Function to Convert back from BASE64 encoding else returns the string `"-FAIL"`
 
 
