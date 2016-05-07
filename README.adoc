@@ -72,13 +72,13 @@ void loop() {
 === Limitations ===
  
 > **OO Implementation Limits:**
-> This library can't take Encodeing strings more than "70 Characters" for the OO Implementation.
-> This library can't Decode the BASE64 strings beyond "100 Characters" for the OO Implementation.
-> Memory usage is approximately 280Bytes in RAM.
- 
+>   *  Can't take Encodeing strings more than "70 Characters".
+>   *  Can't Decode the BASE64 strings beyond "100 Characters".
+>   *  Memory usage is approximately 280Bytes in RAM.
+
 > **The Native Implementation has no such Limiations.**
 
-For more information about this library please visit us at
+For more information about this library please view the code at
 http://github.com/boseji/rBASE64
 
 
