@@ -9,7 +9,7 @@
 // Thread Safe: No
 // Extendable: Yes
 //
-// @file Base64.h
+// @file rBase64.h
 //
 // @brief 
 // Library to provide the BASE64 conversion and vis-versa
@@ -24,8 +24,8 @@
 // @author boseji - salearj@hotmail.com
 // ---------------------------------------------------------------------------
 
-#ifndef _BASE64_H
-#define _BASE64_H
+#ifndef _RBASE64_H
+#define _RBASE64_H
 
 /* b64_alphabet:
  *      Description: Base64 alphabet table, a mapping between integers
@@ -48,7 +48,7 @@ extern const char b64_alphabet[];
  *          2. input must not be null
  *          3. inputLen must be greater than or equal to 0
  */
-size_t base64_encode(char *output, char *input, size_t inputLen);
+size_t rbase64_encode(char *output, char *input, size_t inputLen);
 
 /* base64_decode:
  *      Description:
@@ -66,7 +66,7 @@ size_t base64_encode(char *output, char *input, size_t inputLen);
  *          2. input must not be null
  *          3. inputLen must be greater than or equal to 0
  */
-size_t base64_decode(char *output, char *input, size_t inputLen);
+size_t rbase64_decode(char *output, char *input, size_t inputLen);
 
 /* base64_enc_len:
  *      Description:
@@ -80,7 +80,7 @@ size_t base64_decode(char *output, char *input, size_t inputLen);
  *      Requirements:
  *          None
  */
-size_t base64_enc_len(size_t inputLen);
+size_t rbase64_enc_len(size_t inputLen);
 
 /* base64_dec_len:
  *      Description:
@@ -96,12 +96,12 @@ size_t base64_enc_len(size_t inputLen);
  *          1. input must not be null
  *          2. input must be greater than or equal to zero
  */
-size_t base64_dec_len(char *input, size_t inputLen);
+size_t rbase64_dec_len(char *input, size_t inputLen);
 
 /*
   Base 64 Class for Implementing the bidirectional transactions on BASE64
  */
-class BASE64 {
+class rBASE64 {
     public:
         String encode(uint8_t *data, size_t length);
         String encode(char *data);
@@ -111,6 +111,6 @@ class BASE64 {
         String decode(String text);
 };
 
-extern BASE64 base64;
+extern rBASE64 rbase64;
 
-#endif // _BASE64_H
+#endif // _RBASE64_H

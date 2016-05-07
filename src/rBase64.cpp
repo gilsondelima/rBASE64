@@ -9,7 +9,7 @@
 // Thread Safe: No
 // Extendable: Yes
 //
-// @file Base64.cpp
+// @file rBase64.cpp
 //
 // @brief 
 // Library to provide the BASE64 conversion and vis-versa
@@ -21,7 +21,7 @@
 // ---------------------------------------------------------------------------
 
 #include "Arduino.h"
-#include "Base64.h"
+#include "rBase64.h"
 
 const char b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     "abcdefghijklmnopqrstuvwxyz"
@@ -32,7 +32,7 @@ inline void a3_to_a4(unsigned char * a4, unsigned char * a3);
 inline void a4_to_a3(unsigned char * a3, unsigned char * a4);
 inline unsigned char b64_lookup(char c);
 
-size_t base64_encode(char *output, char *input, size_t inputLen) {
+size_t rbase64_encode(char *output, char *input, size_t inputLen) {
   int i = 0, j = 0;
   size_t encLen = 0;
   unsigned char a3[3];
@@ -70,7 +70,7 @@ size_t base64_encode(char *output, char *input, size_t inputLen) {
   return encLen;
 }
 
-size_t base64_decode(char * output, char * input, size_t inputLen) {
+size_t rbase64_decode(char * output, char * input, size_t inputLen) {
   int i = 0, j = 0;
   size_t decLen = 0;
   unsigned char a3[3];
@@ -116,12 +116,12 @@ size_t base64_decode(char * output, char * input, size_t inputLen) {
   return decLen;
 }
 
-size_t base64_enc_len(size_t plainLen) {
+size_t rbase64_enc_len(size_t plainLen) {
   size_t n = plainLen;
   return (n + 2 - ((n + 2) % 3)) / 3 * 4;
 }
 
-size_t base64_dec_len(char * input, size_t inputLen) {
+size_t rbase64_dec_len(char * input, size_t inputLen) {
   uint32_t i = 0;
   size_t numEq = 0;
   for(i = inputLen - 1; input[i] == '='; i--) {
@@ -163,14 +163,14 @@ inline unsigned char b64_lookup(char c) {
  *
  * @return Encoded String else the '-FAIL-' string in case of Error
  */
-String BASE64::encode(uint8_t *data, size_t length)
+String rBASE64::encode(uint8_t *data, size_t length)
 {
-  size_t o_length = base64_enc_len(length);
+  size_t o_length = rbase64_enc_len(length);
   char *buf = (char *) malloc(o_length);
   if(buf)
   {
     /* Make sure that the Length is Ok for the Output */
-    if(o_length == base64_encode(buf,(char *)data,length))
+    if(o_length == rbase64_encode(buf,(char *)data,length))
     {
       String s = String(buf);
       free(buf);
@@ -189,9 +189,9 @@ String BASE64::encode(uint8_t *data, size_t length)
  *
  * @return Encoded String else the '-FAIL-' string in case of Error
  */
-String BASE64::encode(char *data)
+String rBASE64::encode(char *data)
 {
-  return BASE64::encode((uint8_t *)data, strlen(data));
+  return rBASE64::encode((uint8_t *)data, strlen(data));
 }
 
 /**
@@ -201,9 +201,9 @@ String BASE64::encode(char *data)
  *
  * @return Encoded String else the '-FAIL-' string in case of Error
  */
-String BASE64::encode(String text)
+String rBASE64::encode(String text)
 {
-  return BASE64::encode((uint8_t *) text.c_str(), text.length());
+  return rBASE64::encode((uint8_t *) text.c_str(), text.length());
 }
 
 /**
@@ -214,14 +214,14 @@ String BASE64::encode(String text)
  *
  * @return Decoded String else the '-FAIL-' string in case of Error
  */
-String BASE64::decode(uint8_t *data, size_t length)
+String rBASE64::decode(uint8_t *data, size_t length)
 {
-  size_t o_length = base64_dec_len((char *)data, length);
+  size_t o_length = rbase64_dec_len((char *)data, length);
   char *buf = (char *) malloc(o_length);
   if(buf)
   {
     /* Make sure that the Length is Ok for the Output */
-    if(o_length == base64_decode(buf,(char *)data,length))
+    if(o_length == rbase64_decode(buf,(char *)data,length))
     {
       String s = String(buf);
       free(buf);
@@ -240,9 +240,9 @@ String BASE64::decode(uint8_t *data, size_t length)
  *
  * @return Decoded String else the '-FAIL-' string in case of Error
  */
-String BASE64::decode(char *data)
+String rBASE64::decode(char *data)
 {
-  return BASE64::decode((uint8_t *)data, strlen(data));
+  return rBASE64::decode((uint8_t *)data, strlen(data));
 }
 
 /**
@@ -252,10 +252,10 @@ String BASE64::decode(char *data)
  *
  * @return Decoded String else the '-FAIL-' string in case of Error
  */
- String BASE64::decode(String text)
+ String rBASE64::decode(String text)
 {
-  return BASE64::decode((uint8_t *) text.c_str(), text.length());
+  return rBASE64::decode((uint8_t *) text.c_str(), text.length());
 }
         
 /* Declaring the Main Class Instance */
-BASE64 base64;
+rBASE64 rbase64;

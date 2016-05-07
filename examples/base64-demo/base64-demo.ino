@@ -1,6 +1,6 @@
 /*
 
-  Easy to Use example of BASE64 Library
+  Easy to Use example of rBASE64 Library
 
   This example shows the calling convention for the various functions.
 
@@ -16,15 +16,15 @@
 
 */
 
-#include <Base64.h>
+#include <rBase64.h>
 
 void setup() {
   Serial.begin(115200);
 }
 
 void loop() {
-  Serial.println(base64.encode("Hello There, I am doing Good."));
-  Serial.println(base64.decode("SGVsbG8gVGhlcmUsIEkgYW0gZG9pbmcgR29vZC4="));
+  Serial.println(rbase64.encode("Hello There, I am doing Good."));
+  Serial.println(rbase64.decode("SGVsbG8gVGhlcmUsIEkgYW0gZG9pbmcgR29vZC4="));
   delay(2000);
 }
 
