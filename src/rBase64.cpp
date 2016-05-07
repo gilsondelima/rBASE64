@@ -27,6 +27,8 @@ const char b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     "abcdefghijklmnopqrstuvwxyz"
     "0123456789+/";
 
+// Internal Buffer
+char buf[128];
 /* 'Private' declarations */
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3);
 inline void a4_to_a3(unsigned char * a3, unsigned char * a4);
@@ -166,19 +168,19 @@ inline unsigned char b64_lookup(char c) {
 String rBASE64::encode(uint8_t *data, size_t length)
 {
   size_t o_length = rbase64_enc_len(length);
-  char *buf = (char *) malloc(o_length);
-  if(buf)
+  String s = "-FAIL-";
+  // Check Size
+  if(o_length < 128)
   {
+    s.reserve(o_length);
+
     /* Make sure that the Length is Ok for the Output */
     if(o_length == rbase64_encode(buf,(char *)data,length))
     {
-      String s = String(buf);
-      free(buf);
-      return s;     
+      s = String(buf);
     }
-    free(buf);
   }
-  return String("-FAIL-");
+  return s;
 }
 
 /**
@@ -217,19 +219,18 @@ String rBASE64::encode(String text)
 String rBASE64::decode(uint8_t *data, size_t length)
 {
   size_t o_length = rbase64_dec_len((char *)data, length);
-  char *buf = (char *) malloc(o_length);
-  if(buf)
+  String s = "-FAIL-";
+
+  // Check Size
+  if(o_length < 128)
   {
     /* Make sure that the Length is Ok for the Output */
     if(o_length == rbase64_decode(buf,(char *)data,length))
     {
-      String s = String(buf);
-      free(buf);
-      return s;     
+      s = String(buf);
     }
-    free(buf);
   }
-  return String("-FAIL-");
+  return s;
 }
 
 /**

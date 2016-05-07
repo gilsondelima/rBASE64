@@ -21,7 +21,7 @@ User needs to ensure that that the Output buffer is adequacy sized.
 This function can be used to ascertain the maximum size of buffer needed to accommodate  
 the converted BASE64 output 
 
-  - `size_t rbase64_decode(char *output, char *input, size_t inputLen)`
+  - `size_t rbase64_dec_len(char *input, size_t inputLen)`
   
 This function can be used to find out the maximum size of the buffer needed to accommodate  
 the converted original string from BASE64
@@ -67,8 +67,16 @@ void loop() {
  Thread Safe: No
  Extendable: Yes
 
+
+=== Limitations ===
+ This library can't take Encodeing strings more than "70 Characters".
+ This library can't Decode the BASE64 strings beyond "100 Characters".
+ Memory usage is approximately 280Bytes in RAM.
+
+
 For more information about this library please visit us at
 http://github.com/boseji/rBASE64
+
 
 == License ==
 
