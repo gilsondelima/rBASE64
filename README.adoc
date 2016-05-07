@@ -68,7 +68,7 @@ void loop() {
  Extendable: Yes
 
 For more information about this library please visit us at
-http://github.com/boseji/BASE64
+http://github.com/boseji/rBASE64
 
 == License ==
 
