@@ -1,6 +1,7 @@
 = rBASE64 Library for Arduino =
 
-Helps to read out essential info from ESP8266.
+Real Base64 library is a speed optimized flexible implementations of BASE64
+Encoding and Decoding logic.
 
 There are native as well as object oriented functions.
 
@@ -69,10 +70,13 @@ void loop() {
 
 
 === Limitations ===
- This library can't take Encodeing strings more than "70 Characters".
- This library can't Decode the BASE64 strings beyond "100 Characters".
+ 
+ **OO Implementation Limits:**
+ This library can't take Encodeing strings more than "70 Characters" for the OO Implementation.
+ This library can't Decode the BASE64 strings beyond "100 Characters" for the OO Implementation.
  Memory usage is approximately 280Bytes in RAM.
-
+ 
+ **The Native Implementation has no such Limiations.**
 
 For more information about this library please visit us at
 http://github.com/boseji/rBASE64
