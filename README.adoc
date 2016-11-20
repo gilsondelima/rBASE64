@@ -63,6 +63,23 @@ void loop() {
 }
 ```
 
+
+=== Tip : How to test base64 in Pyhton ===
+
+At the Python terminal prompt (get this by executing `python.exe` on *Windows* or `python` on *Linux* terminal) :
+
+```python
+>>> import base64
+>>> base64.b64encode("Hello There, I am doing Good.")
+'SGVsbG8gVGhlcmUsIEkgYW0gZG9pbmcgR29vZC4='
+>>> base64.b64decode("SGVsbG8gVGhlcmUsIEkgYW0gZG9pbmcgR29vZC4=")
+'Hello There, I am doing Good.'
+>>>
+```
+
+This way one can also verify other strings.
+
+
 === Dependencies ===
  WString Library
  Thread Safe: No
