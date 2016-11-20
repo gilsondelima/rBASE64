@@ -64,7 +64,7 @@ void loop() {
 ```
 
 
-=== Tip : How to test base64 in Pyhton ===
+=== Tip : How to test base64 in Python ===
 
 At the Python terminal prompt (get this by executing `python.exe` on *Windows* or `python` on *Linux* terminal) :
 
